@@ -1,5 +1,4 @@
-/* styles.css */
-
+/* Stile base */
 body {
   font-family: Arial, sans-serif;
   background-color: #fff7e8;
@@ -14,59 +13,72 @@ header, footer {
   text-align: center;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 header .logo img {
-  width: 150px;
+  width: 160px;
 }
 
-header nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
 }
 
-header nav ul li {
-  display: inline;
-  margin: 0 10px;
+.hero h1 {
+  color: #353f40;
+  margin-bottom: 10px;
 }
 
-header nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+.hero p {
+  color: #444;
+  font-size: 18px;
 }
 
-section {
-  padding: 40px;
+/* Dashboard section */
+.dashboard {
+  padding: 20px;
   text-align: center;
 }
 
-h1, h2 {
+.dashboard h2 {
   color: #353f40;
+  margin-bottom: 30px;
 }
 
-h3 {
-  color: #444;
+.tool-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.tool {
-  margin-top: 20px;
-}
-
-.btn {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+.tool-card {
+  background-color: white;
+  color: #353f40;
+  border: 2px solid #353f40;
+  border-radius: 12px;
+  padding: 20px 30px;
   text-decoration: none;
-  border-radius: 5px;
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
 }
 
+.tool-card:hover {
+  background-color: #f4eada;
+}
+
+.tool-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.tool-arrow {
+  font-size: 20px;
+}
+
+/* Footer */
 footer {
   margin-top: 40px;
 }
