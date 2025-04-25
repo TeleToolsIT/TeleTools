@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attenuazione su Cavo | TeleTools</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="logo.png" alt="TeleTools Logo" /></a>
+    </div>
+  </header>
+
+  <main class="tool-page">
+    <h1>📶 Calcolo Attenuazione su Cavo</h1>
+    <p>Inserisci i parametri per calcolare l'attenuazione totale lungo un cavo.</p>
+
+    <div class="converter">
+      <label for="attenuation">Attenuazione (dB/m):</label>
+      <input type="number" id="attenuation" placeholder="es. 0.05" oninput="calculateLoss()" />
+
+      <label for="length">Lunghezza del cavo (m):</label>
+      <input type="number" id="length" placeholder="es. 100" oninput="calculateLoss()" />
+
+      <label for="totalLoss">Perdita Totale (dB):</label>
+      <input type="text" id="totalLoss" readonly />
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TeleTools</p>
+  </footer>
+
+  <script>
+    function calculateLoss() {
+      const attenuation = parseFloat(document.getElementById('attenuation').value);
+      const length = parseFloat(document.getElementById('length').value);
+      if (!isNaN(attenuation) && !isNaN(length)) {
+        const total = attenuation * length;
+        document.getElementById('totalLoss').value = total.toFixed(2) + ' dB';
+      }
+    }
+  </script>
+</body>
+</html>
