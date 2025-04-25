@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calcolo Lunghezza d'Onda ↔ Frequenza | TeleTools</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="logo.png" alt="TeleTools Logo" /></a>
+    </div>
+  </header>
+
+  <main class="tool-page">
+    <h1>📐 Calcolo Lunghezza d'Onda ↔ Frequenza</h1>
+    <p>Inserisci un valore per calcolare la lunghezza d'onda o la frequenza. Costante c = 3·10⁸ m/s.</p>
+
+    <div class="converter">
+      <label for="freq">Frequenza (Hz):</label>
+      <input type="number" id="freq" placeholder="es. 1000000000" oninput="calcFromFreq()" />
+
+      <label for="lambda">Lunghezza d'Onda (m):</label>
+      <input type="number" id="lambda" placeholder="es. 0.3" oninput="calcFromLambda()" />
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TeleTools</p>
+  </footer>
+
+  <script>
+    const c = 3e8;
+
+    function calcFromFreq() {
+      const f = parseFloat(document.getElementById('freq').value);
+      if (!isNaN(f) && f !== 0) {
+        const lambda = c / f;
+        document.getElementById('lambda').value = lambda.toFixed(4);
+      }
+    }
+
+    function calcFromLambda() {
+      const lambda = parseFloat(document.getElementById('lambda').value);
+      if (!isNaN(lambda) && lambda !== 0) {
+        const f = c / lambda;
+        document.getElementById('freq').value = f.toFixed(0);
+      }
+    }
+  </script>
+</body>
+</html>
