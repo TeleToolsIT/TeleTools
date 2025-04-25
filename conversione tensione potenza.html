@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conversione Tensione ↔ Potenza | TeleTools</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="logo.png" alt="TeleTools Logo" /></a>
+    </div>
+  </header>
+
+  <main class="tool-page">
+    <h1>⚡ Conversione Tensione ↔ Potenza</h1>
+    <p>Inserisci due valori per calcolare il terzo, su una data impedenza (default 50Ω).</p>
+
+    <div class="converter">
+      <label for="voltage">Tensione (V):</label>
+      <input type="number" id="voltage" placeholder="es. 1" oninput="calcFromVoltage()" />
+
+      <label for="power">Potenza (W):</label>
+      <input type="number" id="power" placeholder="es. 0.02" oninput="calcFromPower()" />
+
+      <label for="impedance">Impedenza (Ω):</label>
+      <input type="number" id="impedance" placeholder="es. 50" value="50" oninput="recalculate()" />
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TeleTools</p>
+  </footer>
+
+  <script>
+    function calcFromVoltage() {
+      const V = parseFloat(document.getElementById('voltage').value);
+      const Z = parseFloat(document.getElementById('impedance').value);
+      if (!isNaN(V) && !isNaN(Z) && Z !== 0) {
+        const P = (V * V) / Z;
+        document.getElementById('power').value = P.toFixed(4);
+      }
+    }
+
+    function calcFromPower() {
+      const P = parseFloat(document.getElementById('power').value);
+      const Z = parseFloat(document.getElementById('impedance').value);
+      if (!isNaN(P) && !isNaN(Z)) {
+        const V = Math.sqrt(P * Z);
+        document.getElementById('voltage').value = V.toFixed(4);
+      }
+    }
+
+    function recalculate() {
+      if (document.getElementById('voltage').value !== "") {
+        calcFromVoltage();
+      } else if (document.getElementById('power').value !== "") {
+        calcFromPower();
+      }
+    }
+  </script>
+</body>
+</html>
