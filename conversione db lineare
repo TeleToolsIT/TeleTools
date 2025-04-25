@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conversione dB ↔ Rapporto Lineare | TeleTools</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="logo.png" alt="TeleTools Logo" /></a>
+    </div>
+  </header>
+
+  <main class="tool-page">
+    <h1>📡 Conversione dB ↔ Rapporto Lineare</h1>
+    <p>Converti un valore in dB in rapporto lineare e viceversa.</p>
+
+    <div class="converter">
+      <label for="db">dB:</label>
+      <input type="number" id="db" placeholder="es. 3" oninput="dbToLinear()" />
+
+      <label for="linear">Rapporto Lineare:</label>
+      <input type="number" id="linear" placeholder="es. 2" oninput="linearToDb()" />
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TeleTools</p>
+  </footer>
+
+  <script>
+    function dbToLinear() {
+      const db = parseFloat(document.getElementById('db').value);
+      const linear = Math.pow(10, db / 10);
+      if (!isNaN(linear)) document.getElementById('linear').value = linear.toFixed(4);
+    }
+
+    function linearToDb() {
+      const linear = parseFloat(document.getElementById('linear').value);
+      const db = 10 * Math.log10(linear);
+      if (!isNaN(db)) document.getElementById('db').value = db.toFixed(2);
+    }
+  </script>
+</body>
+</html>
