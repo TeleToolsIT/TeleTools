@@ -1,61 +1,47 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Convertitore dBm ↔ mW | TeleTools</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="logo.png" alt="Logo TeleTools">
+      <a href="index.html"><img src="logo.png" alt="TeleTools Logo" /></a>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <section>
+  <main class="tool-page">
     <h1>Convertitore dBm ↔ mW</h1>
-    <p>Inserisci un valore per convertire automaticamente tra dBm e milliwatt.</p>
+    <p>Inserisci un valore per convertire tra dBm e milliwatt.</p>
 
     <div class="converter">
       <label for="dbm">dBm:</label>
-      <input type="number" id="dbm" step="any" placeholder="Es. 10">
+      <input type="number" id="dbm" placeholder="es. 10" oninput="convertToMw()" />
 
       <label for="mw">mW:</label>
-      <input type="number" id="mw" step="any" placeholder="Es. 10">
+      <input type="number" id="mw" placeholder="es. 10" oninput="convertToDbm()" />
     </div>
-  </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 TeleTools. Tutti i diritti riservati.</p>
+    <p>&copy; 2025 TeleTools</p>
   </footer>
 
   <script>
-    const dbmInput = document.getElementById('dbm');
-    const mwInput = document.getElementById('mw');
+    function convertToMw() {
+      const dbm = parseFloat(document.getElementById('dbm').value);
+      const mw = Math.pow(10, dbm / 10);
+      if (!isNaN(mw)) document.getElementById('mw').value = mw.toFixed(4);
+    }
 
-    dbmInput.addEventListener('input', () => {
-      const dbm = parseFloat(dbmInput.value);
-      if (!isNaN(dbm)) {
-        mwInput.value = (Math.pow(10, dbm / 10)).toFixed(4);
-      } else {
-        mwInput.value = '';
-      }
-    });
-
-    mwInput.addEventListener('input', () => {
-      const mw = parseFloat(mwInput.value);
-      if (!isNaN(mw) && mw > 0) {
-        dbmInput.value = (10 * Math.log10(mw)).toFixed(4);
-      } else {
-        dbmInput.value = '';
-      }
-    });
+    function convertToDbm() {
+      const mw = parseFloat(document.getElementById('mw').value);
+      const dbm = 10 * Math.log10(mw);
+      if (!isNaN(dbm)) document.getElementById('dbm').value = dbm.toFixed(2);
+    }
   </script>
 </body>
 </html>
