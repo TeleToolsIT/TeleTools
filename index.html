@@ -6,6 +6,48 @@
   <meta name="description" content="Strumenti e convertitori per telecomunicazioni">
   <title>TeleTools - Dashboard</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .dropdown-menu {
+      position: relative;
+      display: inline-block;
+      margin: 1rem 0;
+    }
+
+    .dropbtn {
+      background-color: #353f40;
+      color: #fff7e8;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff7e8;
+      min-width: 220px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 8px;
+    }
+
+    .dropdown-content a {
+      color: #353f40;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown-menu:hover .dropdown-content {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -13,6 +55,17 @@
       <img src="logo.png" alt="Logo TeleTools" />
     </div>
   </header>
+
+  <div class="dropdown-menu">
+    <button class="dropbtn">📚 Vai ai convertitori ▼</button>
+    <div class="dropdown-content">
+      <a href="dBm-mW.html">🔌 dBm ↔ mW</a>
+      <a href="attenuazione-cavo.html">📶 Attenuazione su cavo</a>
+      <a href="conversione-db-lineare.html">📡 dB ↔ Rapporto lineare</a>
+      <a href="conversione-tensione-potenza.html">⚡ Tensione ↔ Potenza</a>
+      <a href="lunghezza-onda.html">📐 Lunghezza d’onda ↔ Frequenza</a>
+    </div>
+  </div>
 
 <section class="hero">
   <h1 style="font-size: 42px; text-transform: uppercase; color: #000000;">🛰️ Benvenuto su TeleTools</h1>
@@ -26,28 +79,19 @@
   </p>
 </section>
 
-  <section class="dashboard">
-    <h2>Strumenti disponibili</h2>
-     <div class="tool-list">
-    <a href="dBm-mW.html" class="tool-card">
-      🔌 Convertitore dBm ↔ mW
-    </a>
-    <a href="Calcolo Attenuazione Cavo.html" class="tool-card">
-      📶 Calcolo attenuazione su cavo
-    </a>
-    <a href="conversione db lineare.html" class="tool-card">
-      📡 Conversione dB ↔ rapporto lineare
-    </a>
-    <a href="conversione tensione potenza.html" class="tool-card">
-      ⚡ Conversione tensione ↔ potenza (su impedenza)
-    </a>
-    <a href="calcolo-lunghezza-donda" class="tool-card">
-      📐 Calcolo lunghezza d’onda ↔ frequenza
-    </a>
+<section class="dashboard">
+  <h2>Strumenti disponibili</h2>
+  <div class="tool-list">
+    <a href="dBm-mW.html" class="tool-card">🔌 Convertitore dBm ↔ mW</a>
+    <a href="calcolo-attenuazione-cavo.html" class="tool-card">📶 Calcolo attenuazione su cavo</a>
+    <a href="conversione-db-lineare.html" class="tool-card">📡 Conversione dB ↔ rapporto lineare</a>
+    <a href="conversione-tensione-potenza.html" class="tool-card">⚡ Conversione tensione ↔ potenza (su impedenza)</a>
+    <a href="calcolo-lunghezza-donda.html" class="tool-card">📐 Calcolo lunghezza d’onda ↔ frequenza</a>
   </div>
 </section>
-  <footer>
-    <p>&copy; 2025 TeleTools. Tutti i diritti riservati.</p>
-  </footer>
+
+<footer>
+  <p>&copy; 2025 TeleTools. Tutti i diritti riservati.</p>
+</footer>
 </body>
 </html>
