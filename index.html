@@ -30,6 +30,7 @@
       max-width: 100%;
     }
 
+    /* Hamburger Menu */
     .menu-toggle {
       cursor: pointer;
       width: 30px;
@@ -38,13 +39,16 @@
       left: 20px;
       top: 28px;
       z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .menu-toggle span {
       background: #fff;
       display: block;
       height: 3px;
-      margin: 6px 0;
+      width: 30px;
       transition: 0.4s;
     }
 
@@ -132,6 +136,7 @@
       padding: 20px;
       margin-top: 40px;
     }
+
   </style>
 </head>
 <body>
@@ -150,10 +155,10 @@
   <div id="sidebar" class="sidebar">
     <a href="index.html">HOME</a>
     <a href="dBm-mW.html">DBM ↔ MW</a>
-    <a href="calcolo-attenuazione-cavo.html">ATTENUAZIONE SU CAVO</a>
+    <a href="attenuazione-cavo.html">ATTENUAZIONE SU CAVO</a>
     <a href="conversione-db-lineare.html">DB ↔ RAPPORTO</a>
     <a href="conversione-tensione-potenza.html">TENSIONE ↔ POTENZA</a>
-    <a href="calcolo-lunghezza-donda.html">LUNGHEZZA D’ONDA</a>
+    <a href="lunghezza-onda.html">LUNGHEZZA D’ONDA</a>
     <a href="sostienimi.html">SOSTIENIMI</a>
   </div>
 
