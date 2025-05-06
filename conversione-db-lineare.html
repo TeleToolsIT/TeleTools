@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Attenuazione su Cavo - TeleTools</title>
+  <title>dB ↔ Rapporto Lineare - TeleTools</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     body {
@@ -18,9 +18,6 @@
       padding: 1rem;
       text-align: center;
       color: #fff7e8;
-    }
-    header img {
-      max-height: 60px;
     }
 
     main {
@@ -73,28 +70,30 @@
   </style>
 </head>
 <body>
- <header>
-    <img src="logo.png" alt="Logo TeleTools" />
+  <header>
+    <h2>TeleTools</h2>
   </header>
 
   <main>
-    <h1>📶 Calcolo Attenuazione su Cavo</h1>
+    <h1>📡 dB ↔ Rapporto Lineare</h1>
     <div class="description">
-      L’attenuazione rappresenta la perdita di potenza del segnale lungo un cavo. Questo strumento ti aiuta a stimare le perdite
-      in decibel (dB) conoscendo il valore di attenuazione per metro e la lunghezza del cavo, utile per la progettazione di impianti RF o reti.
+      I decibel (dB) sono usati per esprimere rapporti di potenza o ampiezza in forma logaritmica. Questo strumento ti permette di convertire tra decibel
+      e il corrispondente rapporto lineare (es. 20 dB ↔ 100×). Supporta sia la potenza (10·log₁₀) che la tensione/ampiezza (20·log₁₀).
     </div>
 
     <div class="converter-box">
-      <label for="attenuazione">Attenuazione (dB/m):</label>
-      <input type="number" id="attenuazione" placeholder="Es. 0.2" />
+      <label for="db">Valore in dB:</label>
+      <input type="number" id="db" placeholder="Es. 20" oninput="convertToLinear()" />
 
-      <label for="lunghezza">Lunghezza del cavo (m):</label>
-      <input type="number" id="lunghezza" placeholder="Es. 50" />
+      <label for="linear">Rapporto Lineare:</label>
+      <input type="number" id="linear" placeholder="Es. 100" oninput="convertToDb()" />
 
-      <label for="risultato">Attenuazione totale (dB):</label>
-      <input type="text" id="risultato" readonly />
+      <label>
+        <input type="radio" name="tipo" value="potenza" checked> Potenza (10·log₁₀)
+        <input type="radio" name="tipo" value="ampiezza"> Ampiezza (20·log₁₀)
+      </label>
 
-      <button onclick="calcolaAttenuazione()">Calcola</button>
+      <button onclick="clearFields()">Reset</button>
     </div>
   </main>
 
@@ -103,14 +102,31 @@
   </footer>
 
   <script>
-    function calcolaAttenuazione() {
-      const att = parseFloat(document.getElementById("attenuazione").value);
-      const lung = parseFloat(document.getElementById("lunghezza").value);
-
-      if (!isNaN(att) && !isNaN(lung)) {
-        const risultato = att * lung;
-        document.getElementById("risultato").value = risultato.toFixed(2) + " dB";
+    function convertToLinear() {
+      const db = parseFloat(document.getElementById("db").value);
+      const tipo = document.querySelector('input[name="tipo"]:checked').value;
+      if (!isNaN(db)) {
+        const linear = tipo === "potenza"
+          ? Math.pow(10, db / 10)
+          : Math.pow(10, db / 20);
+        document.getElementById("linear").value = linear.toFixed(4);
       }
+    }
+
+    function convertToDb() {
+      const linear = parseFloat(document.getElementById("linear").value);
+      const tipo = document.querySelector('input[name="tipo"]:checked').value;
+      if (!isNaN(linear) && linear > 0) {
+        const db = tipo === "potenza"
+          ? 10 * Math.log10(linear)
+          : 20 * Math.log10(linear);
+        document.getElementById("db").value = db.toFixed(2);
+      }
+    }
+
+    function clearFields() {
+      document.getElementById("db").value = "";
+      document.getElementById("linear").value = "";
     }
   </script>
 </body>
