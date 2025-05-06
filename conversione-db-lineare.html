@@ -2,27 +2,96 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conversione dB ↔ Rapporto Lineare | TeleTools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attenuazione su Cavo - TeleTools</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff7e8;
+      font-family: Arial, sans-serif;
+      color: #000;
+    }
+
+    header, footer {
+      background-color: #353f40;
+      padding: 1rem;
+      text-align: center;
+      color: #fff7e8;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .converter-box {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .converter-box label {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    .converter-box input {
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .converter-box button {
+      background-color: #353f40;
+      color: #fff7e8;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">
-      <a href="index.html"><img src="logo.png" alt="TeleTools Logo" /></a>
-    </div>
+    <h2>TeleTools</h2>
   </header>
 
-  <main class="tool-page">
-    <h1>📡 Conversione dB ↔ Rapporto Lineare</h1>
-    <p>Converti un valore in dB in rapporto lineare e viceversa.</p>
+  <main>
+    <h1>📶 Calcolo Attenuazione su Cavo</h1>
+    <div class="description">
+      L’attenuazione rappresenta la perdita di potenza del segnale lungo un cavo. Questo strumento ti aiuta a stimare le perdite
+      in decibel (dB) conoscendo il valore di attenuazione per metro e la lunghezza del cavo, utile per la progettazione di impianti RF o reti.
+    </div>
 
-    <div class="converter">
-      <label for="db">dB:</label>
-      <input type="number" id="db" placeholder="es. 3" oninput="dbToLinear()" />
+    <div class="converter-box">
+      <label for="attenuazione">Attenuazione (dB/m):</label>
+      <input type="number" id="attenuazione" placeholder="Es. 0.2" />
 
-      <label for="linear">Rapporto Lineare:</label>
-      <input type="number" id="linear" placeholder="es. 2" oninput="linearToDb()" />
+      <label for="lunghezza">Lunghezza del cavo (m):</label>
+      <input type="number" id="lunghezza" placeholder="Es. 50" />
+
+      <label for="risultato">Attenuazione totale (dB):</label>
+      <input type="text" id="risultato" readonly />
+
+      <button onclick="calcolaAttenuazione()">Calcola</button>
     </div>
   </main>
 
@@ -31,16 +100,14 @@
   </footer>
 
   <script>
-    function dbToLinear() {
-      const db = parseFloat(document.getElementById('db').value);
-      const linear = Math.pow(10, db / 10);
-      if (!isNaN(linear)) document.getElementById('linear').value = linear.toFixed(4);
-    }
+    function calcolaAttenuazione() {
+      const att = parseFloat(document.getElementById("attenuazione").value);
+      const lung = parseFloat(document.getElementById("lunghezza").value);
 
-    function linearToDb() {
-      const linear = parseFloat(document.getElementById('linear').value);
-      const db = 10 * Math.log10(linear);
-      if (!isNaN(db)) document.getElementById('db').value = db.toFixed(2);
+      if (!isNaN(att) && !isNaN(lung)) {
+        const risultato = att * lung;
+        document.getElementById("risultato").value = risultato.toFixed(2) + " dB";
+      }
     }
   </script>
 </body>
