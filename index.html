@@ -7,78 +7,66 @@
   <title>TeleTools - Dashboard</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .menu-toggle {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 1001;
-      cursor: pointer;
+    .dropdown-menu {
+      position: relative;
+      display: inline-block;
+      margin: 1rem 0;
     }
 
-    .menu-toggle div {
-      width: 30px;
-      height: 4px;
-      background-color: #fff7e8;
-      margin: 6px 0;
-      transition: 0.4s;
-    }
-
-    .side-menu {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      top: 0;
-      left: 0;
+    .dropbtn {
       background-color: #353f40;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 60px;
-      z-index: 1000;
-    }
-
-    .side-menu a {
-      padding: 12px 24px;
-      text-decoration: none;
-      font-size: 20px;
       color: #fff7e8;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff7e8;
+      min-width: 220px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 8px;
+    }
+
+    .dropdown-content a {
+      color: #353f40;
+      padding: 12px 16px;
+      text-decoration: none;
       display: block;
-      transition: 0.3s;
     }
 
-    .side-menu a:hover {
-      background-color: #444;
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
     }
 
-    .side-menu.open {
-      width: 250px;
+    .dropdown-menu:hover .dropdown-content {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="menu-toggle" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
-
-<nav id="sideMenu" class="side-menu">
-  <a href="index.html">HOME</a>
-  <a href="dBm-mW.html">CONVERTITORE DBM</a>
-  <a href="attenuazione.html">ATTENUAZIONE</a>
-  <a href="db-ratio.html">DB ↔ RAPPORTO</a>
-  <a href="volt-watt.html">TENSIONE ↔ POTENZA</a>
-  <a href="lunghezza-frequenza.html">LUNGHEZZA ↔ FREQUENZA</a>
-  <a href="sostienimi.html">SOSTIENIMI</a>
-</nav>
-
-
   <header>
     <div class="logo">
       <img src="logo.png" alt="Logo TeleTools" />
     </div>
   </header>
-  
+
+  <div class="dropdown-menu">
+    <button class="dropbtn">📚 Vai ai convertitori ▼</button>
+    <div class="dropdown-content">
+      <a href="dBm-mW.html">🔌 dBm ↔ mW</a>
+      <a href="attenuazione-cavo.html">📶 Attenuazione su cavo</a>
+      <a href="conversione-db-lineare.html">📡 dB ↔ Rapporto lineare</a>
+      <a href="conversione-tensione-potenza.html">⚡ Tensione ↔ Potenza</a>
+      <a href="lunghezza-onda.html">📐 Lunghezza d’onda ↔ Frequenza</a>
+    </div>
+  </div>
+
 <section class="hero">
   <h1 style="font-size: 42px; text-transform: uppercase; color: #000000;">🛰️ Benvenuto su TeleTools</h1>
   <p>Il tuo toolbox per le telecomunicazioni</p>
@@ -95,21 +83,15 @@
   <h2>Strumenti disponibili</h2>
   <div class="tool-list">
     <a href="dBm-mW.html" class="tool-card">🔌 Convertitore dBm ↔ mW</a>
-    <a href="calcolo-attenuazione-cavo.html" class="tool-card">📶 Calcolo attenuazione su cavo</a>
+    <a href="attenuazione-cavo.html" class="tool-card">📶 Calcolo attenuazione su cavo</a>
     <a href="conversione-db-lineare.html" class="tool-card">📡 Conversione dB ↔ rapporto lineare</a>
     <a href="conversione-tensione-potenza.html" class="tool-card">⚡ Conversione tensione ↔ potenza (su impedenza)</a>
-    <a href="calcolo-lunghezza-donda.html" class="tool-card">📐 Calcolo lunghezza d’onda ↔ frequenza</a>
+    <a href="lunghezza-onda.html" class="tool-card">📐 Calcolo lunghezza d’onda ↔ frequenza</a>
   </div>
 </section>
 
 <footer>
   <p>&copy; 2025 TeleTools. Tutti i diritti riservati.</p>
 </footer>
-
-<script>
-  function toggleMenu() {
-    document.getElementById("sideMenu").classList.toggle("open");
-  }
-</script>
 </body>
 </html>
