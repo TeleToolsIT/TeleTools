@@ -2,30 +2,96 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Attenuazione su Cavo | TeleTools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attenuazione su Cavo - TeleTools</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff7e8;
+      font-family: Arial, sans-serif;
+      color: #000;
+    }
+
+    header, footer {
+      background-color: #353f40;
+      padding: 1rem;
+      text-align: center;
+      color: #fff7e8;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .converter-box {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .converter-box label {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    .converter-box input {
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .converter-box button {
+      background-color: #353f40;
+      color: #fff7e8;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">
-      <a href="index.html"><img src="logo.png" alt="TeleTools Logo" /></a>
-    </div>
+    <h2>TeleTools</h2>
   </header>
 
-  <main class="tool-page">
+  <main>
     <h1>📶 Calcolo Attenuazione su Cavo</h1>
-    <p>Inserisci i parametri per calcolare l'attenuazione totale lungo un cavo.</p>
+    <div class="description">
+      L’attenuazione rappresenta la perdita di potenza del segnale lungo un cavo. Questo strumento ti aiuta a stimare le perdite
+      in decibel (dB) conoscendo il valore di attenuazione per metro e la lunghezza del cavo, utile per la progettazione di impianti RF o reti.
+    </div>
 
-    <div class="converter">
-      <label for="attenuation">Attenuazione (dB/m):</label>
-      <input type="number" id="attenuation" placeholder="es. 0.05" oninput="calculateLoss()" />
+    <div class="converter-box">
+      <label for="attenuazione">Attenuazione (dB/m):</label>
+      <input type="number" id="attenuazione" placeholder="Es. 0.2" />
 
-      <label for="length">Lunghezza del cavo (m):</label>
-      <input type="number" id="length" placeholder="es. 100" oninput="calculateLoss()" />
+      <label for="lunghezza">Lunghezza del cavo (m):</label>
+      <input type="number" id="lunghezza" placeholder="Es. 50" />
 
-      <label for="totalLoss">Perdita Totale (dB):</label>
-      <input type="text" id="totalLoss" readonly />
+      <label for="risultato">Attenuazione totale (dB):</label>
+      <input type="text" id="risultato" readonly />
+
+      <button onclick="calcolaAttenuazione()">Calcola</button>
     </div>
   </main>
 
@@ -34,12 +100,13 @@
   </footer>
 
   <script>
-    function calculateLoss() {
-      const attenuation = parseFloat(document.getElementById('attenuation').value);
-      const length = parseFloat(document.getElementById('length').value);
-      if (!isNaN(attenuation) && !isNaN(length)) {
-        const total = attenuation * length;
-        document.getElementById('totalLoss').value = total.toFixed(2) + ' dB';
+    function calcolaAttenuazione() {
+      const att = parseFloat(document.getElementById("attenuazione").value);
+      const lung = parseFloat(document.getElementById("lunghezza").value);
+
+      if (!isNaN(att) && !isNaN(lung)) {
+        const risultato = att * lung;
+        document.getElementById("risultato").value = risultato.toFixed(2) + " dB";
       }
     }
   </script>
