@@ -7,91 +7,174 @@
   <title>TeleTools - Dashboard</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .dropdown-menu {
-      position: relative;
-      display: inline-block;
-      margin: 1rem 0;
-    }
-
-    .dropbtn {
-      background-color: #353f40;
-      color: #fff7e8;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-      border-radius: 8px;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
+    body {
+      margin: 0;
       background-color: #fff7e8;
-      min-width: 220px;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      border-radius: 8px;
+      font-family: Arial, sans-serif;
     }
 
-    .dropdown-content a {
-      color: #353f40;
-      padding: 12px 16px;
-      text-decoration: none;
+    header {
+      background-color: #353f40;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .menu-toggle {
+      cursor: pointer;
       display: block;
+      width: 30px;
+      height: 25px;
+      position: relative;
     }
 
-    .dropdown-content a:hover {
+    .menu-toggle span {
+      background: #fff;
+      display: block;
+      height: 3px;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #353f40;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 2;
+    }
+
+    .sidebar a {
+      padding: 12px 24px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #fff7e8;
+      display: block;
+      text-transform: uppercase;
+    }
+
+    .sidebar a:hover {
+      background-color: #444;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    .intro {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .dashboard {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .tool-card {
+      background-color: #fff;
+      border: 2px solid #353f40;
+      color: #000;
+      padding: 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      min-width: 200px;
+      transition: background-color 0.3s ease;
+    }
+
+    .tool-card:hover {
       background-color: #f1f1f1;
     }
 
-    .dropdown-menu:hover .dropdown-content {
-      display: block;
+    footer {
+      background-color: #353f40;
+      color: #fff7e8;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
+
   <header>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <div class="logo">
-      <img src="logo.png" alt="Logo TeleTools" />
+      <a href="index.html"><img src="logo.png" alt="Logo TeleTools" /></a>
     </div>
   </header>
 
-  <div class="dropdown-menu">
-    <button class="dropbtn">📚 Vai ai convertitori ▼</button>
-    <div class="dropdown-content">
-      <a href="dBm-mW.html">🔌 dBm ↔ mW</a>
-      <a href="attenuazione-cavo.html">📶 Attenuazione su cavo</a>
-      <a href="conversione-db-lineare.html">📡 dB ↔ Rapporto lineare</a>
-      <a href="conversione-tensione-potenza.html">⚡ Tensione ↔ Potenza</a>
-      <a href="lunghezza-onda.html">📐 Lunghezza d’onda ↔ Frequenza</a>
+  <div id="sidebar" class="sidebar">
+    <a href="index.html">Home</a>
+    <a href="dBm-mW.html">dBm ↔ mW</a>
+    <a href="attenuazione-cavo.html">Attenuazione su cavo</a>
+    <a href="conversione-db-lineare.html">dB ↔ Rapporto lineare</a>
+    <a href="conversione-tensione-potenza.html">Tensione ↔ Potenza</a>
+    <a href="lunghezza-onda.html">Lunghezza d’onda ↔ Frequenza</a>
+    <a href="sostienimi.html">Sostienimi</a>
+  </div>
+
+  <section class="hero">
+    <h1>🛰️ Benvenuto su TeleTools</h1>
+    <p>Il tuo toolbox per le telecomunicazioni</p>
+    <p class="intro">
+      In questo sito puoi trovare convertitori e spiegazioni utili per il mondo delle telecomunicazioni, dei sistemi e delle reti.  
+      Sono uno studente all'ultimo anno di scuola superiore industriale e durante i miei studi ho sempre constatato come non ci fosse un posto sul web 
+      in cui erano presenti spiegazioni e lezioni esaustive su queste materie.
+      Per questo nel 2025 fondo questo sito come punto di riferimento per chi, come me, cerca un modo rapido
+      ma allo stesso tempo completo per imparare qualcosa in più in questo magnifico campo della tecnologia.
+    </p>
+  </section>
+
+  <section class="dashboard">
+    <h2>Strumenti disponibili</h2>
+    <div class="tool-list">
+      <a href="dBm-mW.html" class="tool-card">🔌 Convertitore dBm ↔ mW</a>
+      <a href="attenuazione-cavo.html" class="tool-card">📶 Calcolo attenuazione su cavo</a>
+      <a href="conversione-db-lineare.html" class="tool-card">📡 Conversione dB ↔ rapporto lineare</a>
+      <a href="conversione-tensione-potenza.html" class="tool-card">⚡ Conversione tensione ↔ potenza</a>
+      <a href="lunghezza-onda.html" class="tool-card">📐 Calcolo lunghezza d’onda ↔ frequenza</a>
     </div>
-  </div>
+  </section>
 
-<section class="hero">
-  <h1 style="font-size: 42px; text-transform: uppercase; color: #000000;">🛰️ Benvenuto su TeleTools</h1>
-  <p>Il tuo toolbox per le telecomunicazioni</p>
-  <p class="intro">
-    In questo sito puoi trovare convertitori e spiegazioni utili per il mondo delle telecomunicazioni, dei sistemi e delle reti.  
-    Sono uno studente all'ultimo anno di scuola superiore industriale e durante i miei studi ho sempre constatato come non ci fosse un posto sul web 
-    in cui erano presenti spiegazioni e lezioni esaustive su queste materie.
-    Per questo nel 2025 fondo questo sito come punto di riferimento per chi, come me, cerca un modo rapido
-    ma allo stesso tempo completo per imparare qualcosa in più in questo magnifico campo della tecnologia.
-  </p>
-</section>
+  <footer>
+    <p>&copy; 2025 TeleTools. Tutti i diritti riservati.</p>
+  </footer>
 
-<section class="dashboard">
-  <h2>Strumenti disponibili</h2>
-  <div class="tool-list">
-    <a href="dBm-mW.html" class="tool-card">🔌 Convertitore dBm ↔ mW</a>
-    <a href="attenuazione-cavo.html" class="tool-card">📶 Calcolo attenuazione su cavo</a>
-    <a href="conversione-db-lineare.html" class="tool-card">📡 Conversione dB ↔ rapporto lineare</a>
-    <a href="conversione-tensione-potenza.html" class="tool-card">⚡ Conversione tensione ↔ potenza (su impedenza)</a>
-    <a href="lunghezza-onda.html" class="tool-card">📐 Calcolo lunghezza d’onda ↔ frequenza</a>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2025 TeleTools. Tutti i diritti riservati.</p>
-</footer>
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.style.width = sidebar.style.width === "250px" ? "0" : "250px";
+    }
+  </script>
 </body>
 </html>
