@@ -2,30 +2,100 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conversione Tensione ↔ Potenza | TeleTools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conversione Tensione ↔ Potenza - TeleTools</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff7e8;
+      font-family: Arial, sans-serif;
+      color: #000;
+    }
+
+    header, footer {
+      background-color: #353f40;
+      padding: 1rem;
+      text-align: center;
+      color: #fff7e8;
+    }
+
+    header img {
+      max-height: 60px;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .converter-box {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .converter-box label {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    .converter-box input {
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .converter-box button {
+      background-color: #353f40;
+      color: #fff7e8;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">
-      <a href="index.html"><img src="logo.png" alt="TeleTools Logo" /></a>
-    </div>
+    <img src="logo.png" alt="Logo TeleTools" />
   </header>
 
-  <main class="tool-page">
-    <h1>⚡ Conversione Tensione ↔ Potenza</h1>
-    <p>Inserisci due valori per calcolare il terzo, su una data impedenza (default 50Ω).</p>
+  <main>
+    <h1>⚡ Tensione ↔ Potenza</h1>
+    <div class="description">
+      Questo convertitore calcola la potenza a partire dalla tensione (o viceversa) in un sistema resistivo, come una linea RF con impedenza nota (es. 50Ω).
+      Formula usata: P = V² / R. È utile per valutare la potenza trasmessa in circuiti o cavi coassiali.
+    </div>
 
-    <div class="converter">
-      <label for="voltage">Tensione (V):</label>
-      <input type="number" id="voltage" placeholder="es. 1" oninput="calcFromVoltage()" />
+    <div class="converter-box">
+      <label for="voltaggio">Tensione (V):</label>
+      <input type="number" id="voltaggio" placeholder="Es. 10" oninput="calcolaPotenza()" />
 
-      <label for="power">Potenza (W):</label>
-      <input type="number" id="power" placeholder="es. 0.02" oninput="calcFromPower()" />
+      <label for="impedenza">Impedenza (Ω):</label>
+      <input type="number" id="impedenza" value="50" oninput="calcolaPotenza()" />
 
-      <label for="impedance">Impedenza (Ω):</label>
-      <input type="number" id="impedance" placeholder="es. 50" value="50" oninput="recalculate()" />
+      <label for="potenza">Potenza (W):</label>
+      <input type="text" id="potenza" readonly />
+
+      <button onclick="resetta()">Reset</button>
     </div>
   </main>
 
@@ -34,30 +104,20 @@
   </footer>
 
   <script>
-    function calcFromVoltage() {
-      const V = parseFloat(document.getElementById('voltage').value);
-      const Z = parseFloat(document.getElementById('impedance').value);
-      if (!isNaN(V) && !isNaN(Z) && Z !== 0) {
-        const P = (V * V) / Z;
-        document.getElementById('power').value = P.toFixed(4);
+    function calcolaPotenza() {
+      const V = parseFloat(document.getElementById("voltaggio").value);
+      const R = parseFloat(document.getElementById("impedenza").value);
+
+      if (!isNaN(V) && !isNaN(R) && R > 0) {
+        const P = (V * V) / R;
+        document.getElementById("potenza").value = P.toFixed(3) + " W";
       }
     }
 
-    function calcFromPower() {
-      const P = parseFloat(document.getElementById('power').value);
-      const Z = parseFloat(document.getElementById('impedance').value);
-      if (!isNaN(P) && !isNaN(Z)) {
-        const V = Math.sqrt(P * Z);
-        document.getElementById('voltage').value = V.toFixed(4);
-      }
-    }
-
-    function recalculate() {
-      if (document.getElementById('voltage').value !== "") {
-        calcFromVoltage();
-      } else if (document.getElementById('power').value !== "") {
-        calcFromPower();
-      }
+    function resetta() {
+      document.getElementById("voltaggio").value = "";
+      document.getElementById("potenza").value = "";
+      document.getElementById("impedenza").value = 50;
     }
   </script>
 </body>
