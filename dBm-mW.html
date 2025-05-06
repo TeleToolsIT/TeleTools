@@ -10,24 +10,31 @@
 <body>
   <header>
     <a href="index.html">
-      <img src="logo.png" alt="Logo TeleTools" />
+      <img src="logo.png" alt="Logo TeleTools" class="logo-img" />
     </a>
   </header>
 
   <section class="hero">
     <h1>Convertitore dBm ↔ mW</h1>
-    <p>
-      Il dBm (decibel milliwatt) è un'unità logaritmica utilizzata per esprimere la potenza relativa rispetto a 1 milliwatt. È spesso usato nelle telecomunicazioni per rappresentare segnali deboli, come quelli provenienti da antenne o trasmettitori.
+    <p class="description">
+      Il dBm (decibel milliwatt) è una misura logaritmica della potenza rispetto a 1 mW, usata comunemente nelle telecomunicazioni per rappresentare segnali molto deboli o forti in modo compatto. Questo strumento ti permette di convertire tra dBm e mW con precisione.
     </p>
   </section>
 
   <section class="converter">
-    <form>
+    <div class="converter-box">
       <label for="dbm">Inserisci dBm:</label>
-      <input type="number" id="dbm" placeholder="Esempio: -30" />
-      <button type="button" onclick="convertToMw()">Converti in mW</button>
-      <p id="result"></p>
-    </form>
+      <input type="number" id="dbm" placeholder="Es. -20" />
+      <button onclick="convertToMw()">Converti in mW</button>
+    </div>
+
+    <div class="converter-box">
+      <label for="mw">Inserisci mW:</label>
+      <input type="number" id="mw" placeholder="Es. 0.01" />
+      <button onclick="convertToDbm()">Converti in dBm</button>
+    </div>
+
+    <p id="result"></p>
   </section>
 
   <footer>
@@ -36,9 +43,17 @@
 
   <script>
     function convertToMw() {
-      let dbm = document.getElementById("dbm").value;
-      let mw = Math.pow(10, dbm / 10);
-      document.getElementById("result").innerText = `Risultato: ${mw} mW`;
+      const dbm = parseFloat(document.getElementById("dbm").value);
+      if (isNaN(dbm)) return;
+      const mw = Math.pow(10, dbm / 10);
+      document.getElementById("result").innerText = `${dbm} dBm = ${mw.toFixed(4)} mW`;
+    }
+
+    function convertToDbm() {
+      const mw = parseFloat(document.getElementById("mw").value);
+      if (isNaN(mw) || mw <= 0) return;
+      const dbm = 10 * Math.log10(mw);
+      document.getElementById("result").innerText = `${mw} mW = ${dbm.toFixed(2)} dBm`;
     }
   </script>
 </body>
