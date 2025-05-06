@@ -2,27 +2,99 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calcolo Lunghezza d'Onda ↔ Frequenza | TeleTools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lunghezza d’Onda ↔ Frequenza - TeleTools</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff7e8;
+      font-family: Arial, sans-serif;
+      color: #000;
+    }
+
+    header, footer {
+      background-color: #353f40;
+      padding: 1rem;
+      text-align: center;
+      color: #fff7e8;
+    }
+
+    header img {
+      max-height: 60px;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .converter-box {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .converter-box label {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    .converter-box input {
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .converter-box button {
+      background-color: #353f40;
+      color: #fff7e8;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">
-      <a href="index.html"><img src="logo.png" alt="TeleTools Logo" /></a>
-    </div>
+    <img src="logo.png" alt="Logo TeleTools" />
   </header>
 
-  <main class="tool-page">
-    <h1>📐 Calcolo Lunghezza d'Onda ↔ Frequenza</h1>
-    <p>Inserisci un valore per calcolare la lunghezza d'onda o la frequenza. Costante c = 3·10⁸ m/s.</p>
+  <main>
+    <h1>📐 Lunghezza d’Onda ↔ Frequenza</h1>
+    <div class="description">
+      Calcola la lunghezza d’onda in funzione della frequenza e viceversa, usando la velocità della luce nel vuoto o in un mezzo. Formula base: λ = c / f. Utile per antenne, guide d’onda e progettazione RF.
+    </div>
 
-    <div class="converter">
-      <label for="freq">Frequenza (Hz):</label>
-      <input type="number" id="freq" placeholder="es. 1000000000" oninput="calcFromFreq()" />
+    <div class="converter-box">
+      <label for="frequenza">Frequenza (Hz):</label>
+      <input type="number" id="frequenza" placeholder="Es. 100000000" oninput="calcolaLunghezza()" />
 
-      <label for="lambda">Lunghezza d'Onda (m):</label>
-      <input type="number" id="lambda" placeholder="es. 0.3" oninput="calcFromLambda()" />
+      <label for="lunghezza">Lunghezza d’onda (m):</label>
+      <input type="number" id="lunghezza" placeholder="Es. 3" oninput="calcolaFrequenza()" />
+
+      <label for="velocita">Velocità della propagazione (m/s):</label>
+      <input type="number" id="velocita" value="299792458" oninput="aggiornaCalcolo()" />
+
+      <button onclick="resetta()">Reset</button>
     </div>
   </main>
 
@@ -31,22 +103,33 @@
   </footer>
 
   <script>
-    const c = 3e8;
-
-    function calcFromFreq() {
-      const f = parseFloat(document.getElementById('freq').value);
-      if (!isNaN(f) && f !== 0) {
-        const lambda = c / f;
-        document.getElementById('lambda').value = lambda.toFixed(4);
+    function calcolaLunghezza() {
+      const f = parseFloat(document.getElementById("frequenza").value);
+      const c = parseFloat(document.getElementById("velocita").value);
+      if (!isNaN(f) && f > 0 && !isNaN(c)) {
+        const l = c / f;
+        document.getElementById("lunghezza").value = l.toFixed(6);
       }
     }
 
-    function calcFromLambda() {
-      const lambda = parseFloat(document.getElementById('lambda').value);
-      if (!isNaN(lambda) && lambda !== 0) {
-        const f = c / lambda;
-        document.getElementById('freq').value = f.toFixed(0);
+    function calcolaFrequenza() {
+      const l = parseFloat(document.getElementById("lunghezza").value);
+      const c = parseFloat(document.getElementById("velocita").value);
+      if (!isNaN(l) && l > 0 && !isNaN(c)) {
+        const f = c / l;
+        document.getElementById("frequenza").value = f.toFixed(0);
       }
+    }
+
+    function aggiornaCalcolo() {
+      calcolaLunghezza();
+      calcolaFrequenza();
+    }
+
+    function resetta() {
+      document.getElementById("frequenza").value = "";
+      document.getElementById("lunghezza").value = "";
+      document.getElementById("velocita").value = 299792458;
     }
   </script>
 </body>
