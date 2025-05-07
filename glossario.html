@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Glossario dei termini tecnici nelle telecomunicazioni">
-  <title>TeleTools - Glossario</title>
+  <meta name="description" content="Glossario tecnico delle telecomunicazioni">
+  <title>Glossario - TeleTools</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     body {
@@ -83,24 +83,30 @@
       padding: 0 20px;
     }
 
-    h1 {
-      color: #353f40;
-      font-size: 36px;
-      text-align: center;
+    h1, h2 {
+      color: #5a5a5a;
+      font-family: Arial, sans-serif;
+    }
+
+    .term {
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .term strong {
+      font-weight: bold;
+    }
+
+    .search-box {
       margin-bottom: 40px;
     }
 
-    h2 {
-      color: #555;
-      font-size: 24px;
-      margin-top: 30px;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 14px;
-      margin-left: 6px;
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 2px solid #353f40;
+      font-size: 16px;
     }
 
     footer {
@@ -111,8 +117,7 @@
       margin-top: 40px;
     }
   </style>
-
-  <!-- Google Analytics -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VEGQ2RZG5N"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -142,43 +147,35 @@
     <a href="conversione-tensione-potenza.html">TENSIONE ↔ POTENZA</a>
     <a href="calcolo-lunghezza-donda.html">LUNGHEZZA D’ONDA</a>
     <a href="radiofrequenza.html">RADIOFREQUENZA</a>
-    <a href="glossario.html">GLOSSARIO</a>
     <a href="sostienimi.html">SOSTIENIMI</a>
   </div>
 
-  <section class="content">
-    <h1>Glossario delle Telecomunicazioni</h1>
+  <div class="content">
+    <h1>📘 Glossario Tecnico delle Telecomunicazioni</h1>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Cerca un termine...">
+    </div>
 
-    <h2>Segnale</h2>
-    <p>Un <strong>segnale</strong> rappresenta una variazione di grandezza fisica (come tensione o corrente) usata per trasmettere informazioni da un punto a un altro.</p>
-
-    <h2>Banda</h2>
-    <p>La <strong>banda</strong> è l'intervallo di frequenze all'interno del quale un sistema può operare. Maggiore è la banda, maggiore sarà la quantità di dati trasmissibili.</p>
-
-    <h2>Frequenza</h2>
-    <p>La <strong>frequenza</strong> è il numero di oscillazioni di un'onda in un secondo, espressa in Hertz (Hz). È fondamentale per la trasmissione dei segnali radio.</p>
-
-    <h2>Impedenza</h2>
-    <p>L’<strong>impedenza</strong> è una misura della resistenza che un circuito oppone al passaggio di corrente alternata. Nelle telecomunicazioni è spesso pari a <strong>50Ω</strong>.</p>
-
-    <h2>Modulazione</h2>
-    <p>La <strong>modulazione</strong> è la tecnica con cui si varia un segnale portante per trasmettere un’informazione. Esistono diversi tipi: AM, FM, PM.</p>
-
-    <h2>Attenuazione</h2>
-    <p>L’<strong>attenuazione</strong> è la perdita di potenza del segnale mentre viaggia in un mezzo trasmissivo, espressa solitamente in decibel (dB).</p>
-
-    <h2>dB (Decibel)</h2>
-    <p>Il <strong>decibel</strong> è un’unità logaritmica utilizzata per esprimere il rapporto tra due potenze o ampiezze. È ampiamente usato in acustica e telecomunicazioni.</p>
-
-    <h2>VSWR</h2>
-    <p>Il <strong>Rapporto d’onda stazionaria (VSWR)</strong> indica quanto bene una linea di trasmissione è adattata all’antenna. Un valore di <strong>1:1</strong> è ideale.</p>
-
-    <h2>Bitrate</h2>
-    <p>Il <strong>bitrate</strong> rappresenta la quantità di dati trasmessi ogni secondo. Si misura in <strong>bps</strong> (bit per secondo).</p>
-
-    <h2>Amplificatore</h2>
-    <p>Un <strong>amplificatore</strong> è un dispositivo elettronico che aumenta la potenza di un segnale. Molto usato nelle comunicazioni RF e audio.</p>
-  </section>
+    <div id="glossary">
+      <div class="term"><strong>Antenna:</strong> Dispositivo utilizzato per trasmettere o ricevere <strong>onde elettromagnetiche</strong>.</div>
+      <div class="term"><strong>Banda passante:</strong> Intervallo di frequenze che un sistema può trasmettere senza attenuazioni eccessive.</div>
+      <div class="term"><strong>Bit Rate:</strong> Quantità di dati trasmessi per unità di tempo, solitamente espressa in <strong>bps (bit per second)</strong>.</div>
+      <div class="term"><strong>Codifica:</strong> Tecnica per rappresentare i dati in modo comprensibile e trasmissibile, ad esempio <strong>NRZ</strong> o <strong>Manchester</strong>.</div>
+      <div class="term"><strong>Demodulazione:</strong> Processo di estrazione dell’informazione da un segnale modulato.</div>
+      <div class="term"><strong>Frequenza:</strong> Numero di cicli di un’onda al secondo, misurato in <strong>Hertz (Hz)</strong>.</div>
+      <div class="term"><strong>Impedenza:</strong> Misura della resistenza al passaggio della corrente alternata in un circuito, espressa in <strong>ohm</strong>.</div>
+      <div class="term"><strong>LAN (Local Area Network):</strong> Rete locale che collega dispositivi in una piccola area come una casa o un ufficio.</div>
+      <div class="term"><strong>Modulazione:</strong> Tecnica per variare un segnale portante in base all’informazione da trasmettere, come <strong>AM</strong>, <strong>FM</strong>, <strong>QAM</strong>.</div>
+      <div class="term"><strong>Packet Switching:</strong> Metodo di trasmissione dei dati in pacchetti autonomi instradati indipendentemente.</div>
+      <div class="term"><strong>Router:</strong> Dispositivo che instrada i pacchetti dati tra reti differenti.</div>
+      <div class="term"><strong>Spettro:</strong> Insieme delle frequenze disponibili per la trasmissione dei segnali elettromagnetici.</div>
+      <div class="term"><strong>Wavelength (Lunghezza d’onda):</strong> Distanza percorsa da un’onda in un ciclo, inversamente proporzionale alla frequenza.</div>
+      <div class="term"><strong>Wi-Fi:</strong> Tecnologia di trasmissione dati senza fili su banda radio, secondo gli standard <strong>IEEE 802.11</strong>.</div>
+      <div class="term"><strong>Protocollo:</strong> Insieme di regole per la comunicazione tra dispositivi, come <strong>TCP/IP</strong>.</div>
+      <div class="term"><strong>Decibel (dB):</strong> Unità logaritmica usata per esprimere rapporti di potenza o ampiezza.</div>
+      <div class="term"><strong>Fiber Optic:</strong> Tecnologia di trasmissione che usa <strong>luce</strong> per trasportare dati attraverso fili di vetro o plastica.</div>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2025 TeleTools. Tutti i diritti riservati.</p>
@@ -189,7 +186,14 @@
       const sidebar = document.getElementById("sidebar");
       sidebar.style.width = sidebar.style.width === "250px" ? "0" : "250px";
     }
-  </script>
 
+    document.getElementById("searchInput").addEventListener("input", function() {
+      const filter = this.value.toLowerCase();
+      const terms = document.querySelectorAll("#glossary .term");
+      terms.forEach(term => {
+        term.style.display = term.textContent.toLowerCase().includes(filter) ? "block" : "none";
+      });
+    });
+  </script>
 </body>
 </html>
