@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Glossario tecnico delle telecomunicazioni">
+  <meta name="description" content="Glossario dei termini nelle telecomunicazioni - TeleTools">
   <title>Glossario - TeleTools</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
@@ -12,6 +12,7 @@
       font-family: Arial, sans-serif;
       background-color: #fff7e8;
       color: #000;
+      padding: 0 20px;
     }
 
     header {
@@ -27,7 +28,6 @@
     .logo img {
       height: auto;
       width: 120px;
-      max-width: 100%;
     }
 
     .menu-toggle {
@@ -77,36 +77,42 @@
       background-color: #2c3334;
     }
 
-    .content {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
+    h1 {
+      text-align: center;
+      color: #353f40;
+      font-family: 'Arial Black', sans-serif;
+      margin-top: 40px;
     }
 
-    h1, h2 {
-      color: #5a5a5a;
-      font-family: Arial, sans-serif;
+    h2 {
+      color: #353f40;
+      font-family: 'Arial Black', sans-serif;
+      margin-top: 30px;
+      margin-bottom: 8px;
     }
 
-    .term {
-      margin-bottom: 25px;
+    p {
       line-height: 1.6;
+      margin-bottom: 18px;
+      margin-left: 10px;
     }
 
-    .term strong {
+    strong {
       font-weight: bold;
     }
 
-    .search-box {
-      margin-bottom: 40px;
+    .search-bar {
+      text-align: center;
+      margin: 30px 0;
     }
 
-    input[type="text"] {
-      width: 100%;
+    #searchInput {
       padding: 12px;
-      border-radius: 8px;
-      border: 2px solid #353f40;
+      width: 80%;
+      max-width: 500px;
       font-size: 16px;
+      border: 2px solid #353f40;
+      border-radius: 8px;
     }
 
     footer {
@@ -117,6 +123,7 @@
       margin-top: 40px;
     }
   </style>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VEGQ2RZG5N"></script>
   <script>
@@ -127,7 +134,6 @@
   </script>
 </head>
 <body>
-
   <header>
     <div class="menu-toggle" onclick="toggleMenu()">
       <span></span>
@@ -150,31 +156,105 @@
     <a href="sostienimi.html">SOSTIENIMI</a>
   </div>
 
-  <div class="content">
-    <h1>📘 Glossario Tecnico delle Telecomunicazioni</h1>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Cerca un termine...">
-    </div>
+  <h1>Glossario di Telecomunicazioni</h1>
 
-    <div id="glossary">
-      <div class="term"><strong>Antenna:</strong> Dispositivo utilizzato per trasmettere o ricevere <strong>onde elettromagnetiche</strong>.</div>
-      <div class="term"><strong>Banda passante:</strong> Intervallo di frequenze che un sistema può trasmettere senza attenuazioni eccessive.</div>
-      <div class="term"><strong>Bit Rate:</strong> Quantità di dati trasmessi per unità di tempo, solitamente espressa in <strong>bps (bit per second)</strong>.</div>
-      <div class="term"><strong>Codifica:</strong> Tecnica per rappresentare i dati in modo comprensibile e trasmissibile, ad esempio <strong>NRZ</strong> o <strong>Manchester</strong>.</div>
-      <div class="term"><strong>Demodulazione:</strong> Processo di estrazione dell’informazione da un segnale modulato.</div>
-      <div class="term"><strong>Frequenza:</strong> Numero di cicli di un’onda al secondo, misurato in <strong>Hertz (Hz)</strong>.</div>
-      <div class="term"><strong>Impedenza:</strong> Misura della resistenza al passaggio della corrente alternata in un circuito, espressa in <strong>ohm</strong>.</div>
-      <div class="term"><strong>LAN (Local Area Network):</strong> Rete locale che collega dispositivi in una piccola area come una casa o un ufficio.</div>
-      <div class="term"><strong>Modulazione:</strong> Tecnica per variare un segnale portante in base all’informazione da trasmettere, come <strong>AM</strong>, <strong>FM</strong>, <strong>QAM</strong>.</div>
-      <div class="term"><strong>Packet Switching:</strong> Metodo di trasmissione dei dati in pacchetti autonomi instradati indipendentemente.</div>
-      <div class="term"><strong>Router:</strong> Dispositivo che instrada i pacchetti dati tra reti differenti.</div>
-      <div class="term"><strong>Spettro:</strong> Insieme delle frequenze disponibili per la trasmissione dei segnali elettromagnetici.</div>
-      <div class="term"><strong>Wavelength (Lunghezza d’onda):</strong> Distanza percorsa da un’onda in un ciclo, inversamente proporzionale alla frequenza.</div>
-      <div class="term"><strong>Wi-Fi:</strong> Tecnologia di trasmissione dati senza fili su banda radio, secondo gli standard <strong>IEEE 802.11</strong>.</div>
-      <div class="term"><strong>Protocollo:</strong> Insieme di regole per la comunicazione tra dispositivi, come <strong>TCP/IP</strong>.</div>
-      <div class="term"><strong>Decibel (dB):</strong> Unità logaritmica usata per esprimere rapporti di potenza o ampiezza.</div>
-      <div class="term"><strong>Fiber Optic:</strong> Tecnologia di trasmissione che usa <strong>luce</strong> per trasportare dati attraverso fili di vetro o plastica.</div>
-    </div>
+  <div class="search-bar">
+    <input type="text" id="searchInput" onkeyup="filterGlossary()" placeholder="Cerca un termine...">
+  </div>
+
+  <div id="glossary-entries">
+    <h2>Antenna</h2>
+    <p>Dispositivo che <strong>trasmette o riceve onde elettromagnetiche</strong>. Può essere direzionale o omnidirezionale.</p>
+
+    <h2>Attenuazione</h2>
+    <p>Perdita di potenza del segnale durante la trasmissione. Si misura in <strong>decibel (dB)</strong>.</p>
+
+    <h2>Banda Passante</h2>
+    <p>Intervallo di frequenze che un sistema può trasmettere senza attenuazione significativa.</p>
+
+    <h2>Bit Rate</h2>
+    <p>Quantità di bit trasmessi al secondo. Indica la velocità di trasmissione dei dati.</p>
+
+    <h2>Capacità di Canale</h2>
+    <p>Massima quantità di dati che può essere trasmessa in un canale con un certo rumore, secondo il <strong>teorema di Shannon</strong>.</p>
+
+    <h2>Codifica</h2>
+    <p>Processo di trasformazione dell'informazione in un formato compatibile con il canale di trasmissione.</p>
+
+    <h2>Decibel (dB)</h2>
+    <p>Unità logaritmica usata per esprimere rapporti di potenza o tensione.</p>
+
+    <h2>Demodulazione</h2>
+    <p>Recupero del segnale informativo da un'onda modulata.</p>
+
+    <h2>Frequenza</h2>
+    <p>Numero di cicli al secondo di un'onda. Si misura in <strong>Hertz (Hz)</strong>.</p>
+
+    <h2>Impedenza</h2>
+    <p>Opposizione totale (resistiva e reattiva) che un circuito presenta al passaggio della corrente alternata.</p>
+
+    <h2>Jitter</h2>
+    <p>Variazione nel ritardo di trasmissione dei pacchetti. Può causare problemi in <strong>VoIP</strong> o streaming.</p>
+
+    <h2>LAN</h2>
+    <p>Local Area Network: rete limitata a un'area geografica ristretta, come un edificio.</p>
+
+    <h2>Modulazione</h2>
+    <p>Processo di variazione di un'onda portante per trasmettere informazioni.</p>
+
+    <h2>Noise (Rumore)</h2>
+    <p>Segnale indesiderato che interferisce con la trasmissione utile.</p>
+
+    <h2>Packet Switching</h2>
+    <p>Tecnica di trasmissione dei dati in pacchetti, tipica di Internet.</p>
+
+    <h2>Polarizzazione</h2>
+    <p>Orientamento del campo elettrico di un'onda elettromagnetica.</p>
+
+    <h2>QAM</h2>
+    <p>Quadrature Amplitude Modulation: tecnica che combina ampiezza e fase per modulare il segnale.</p>
+
+    <h2>RFID</h2>
+    <p>Sistema di identificazione a radiofrequenza, usato in logistica, magazzini, badge.</p>
+
+    <h2>SAR</h2>
+    <p>Specific Absorption Rate: misura della quantità di energia elettromagnetica assorbita dal corpo umano.</p>
+
+    <h2>Spettro</h2>
+    <p>Gamma di frequenze disponibili per le telecomunicazioni.</p>
+
+    <h2>TCP/IP</h2>
+    <p>Protocollo fondamentale di Internet, gestisce comunicazione e indirizzamento.</p>
+
+    <h2>UDP</h2>
+    <p>Protocollo più veloce del TCP ma non affidabile, usato per streaming.</p>
+
+    <h2>Velocità di propagazione</h2>
+    <p>Velocità alla quale il segnale si muove nel mezzo (rame, fibra, aria).</p>
+
+    <h2>Wi-Fi</h2>
+    <p>Tecnologia wireless basata su standard IEEE 802.11.</p>
+
+    <h2>WLAN</h2>
+    <p>Wireless Local Area Network: versione senza fili della LAN.</p>
+
+    <h2>XDSL</h2>
+    <p>Famiglia di tecnologie per trasmissione dati su doppino telefonico (ADSL, VDSL).</p>
+
+    <h2>YOCTOcell</h2>
+    <p>Piccolissima cella di rete usata in spazi ultra-ridotti.</p>
+
+    <h2>Zona Fresnel</h2>
+    <p>Regione attorno al percorso diretto tra trasmettitore e ricevitore dove gli ostacoli possono causare interferenze.</p>
+
+    <h2>RSSI</h2>
+    <p>Received Signal Strength Indicator: misura della potenza del segnale ricevuto.</p>
+
+    <h2>Throughput</h2>
+    <p>Velocità effettiva di trasmissione dati attraverso un canale.</p>
+
+    <h2>3G/4G/5G</h2>
+    <p>Generazioni di reti mobili con velocità e capacità crescenti.</p>
   </div>
 
   <footer>
@@ -187,13 +267,18 @@
       sidebar.style.width = sidebar.style.width === "250px" ? "0" : "250px";
     }
 
-    document.getElementById("searchInput").addEventListener("input", function() {
-      const filter = this.value.toLowerCase();
-      const terms = document.querySelectorAll("#glossary .term");
-      terms.forEach(term => {
-        term.style.display = term.textContent.toLowerCase().includes(filter) ? "block" : "none";
-      });
-    });
+    function filterGlossary() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const entries = document.getElementById("glossary-entries").children;
+
+      for (let i = 0; i < entries.length; i++) {
+        const el = entries[i];
+        if (el.tagName === 'H2' || el.tagName === 'P') {
+          const text = el.textContent.toLowerCase();
+          el.style.display = text.includes(input) ? "" : "none";
+        }
+      }
+    }
   </script>
 </body>
 </html>
