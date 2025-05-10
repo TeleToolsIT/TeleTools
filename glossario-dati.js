@@ -1,1 +1,83 @@
+# Costruiamo una lista di 90 termini del glossario per il file glossario-dati.js
+# I termini saranno simulati con definizioni brevi a scopo dimostrativo
+
+termini = [
+    ("Amplificatore", "Dispositivo che aumenta l’ampiezza di un segnale."),
+    ("Antenna", "Dispositivo per trasmettere o ricevere onde elettromagnetiche."),
+    ("Attenuazione", "Riduzione di potenza di un segnale durante la trasmissione."),
+    ("Banda passante", "Intervallo di frequenze che un sistema può trasmettere."),
+    ("Bit", "Unità base di informazione in informatica e telecomunicazioni."),
+    ("BPSK", "Modulazione digitale a fase binaria."),
+    ("Broadband", "Sistema che supporta un’ampia gamma di frequenze."),
+    ("Capacità di canale", "Massima quantità di dati trasmessa in un canale."),
+    ("Carrier", "Segnale sinusoidale che trasporta informazione."),
+    ("Codifica", "Trasformazione dei dati in un formato per la trasmissione."),
+    ("dB", "Unità di misura logaritmica di rapporto."),
+    ("dBm", "Decibel riferito a un milliwatt."),
+    ("Demodulazione", "Processo di estrazione del segnale informativo."),
+    ("Dipolo", "Tipo comune di antenna con due conduttori."),
+    ("DSP", "Elaborazione digitale dei segnali."),
+    ("Fading", "Variazione dell’intensità del segnale nel tempo."),
+    ("Frequenza", "Numero di cicli al secondo di un’onda."),
+    ("FM", "Modulazione di frequenza."),
+    ("Filtro", "Dispositivo che seleziona specifiche frequenze."),
+    ("Gateway", "Dispositivo che collega reti diverse."),
+    ("Hz", "Unità di misura della frequenza."),
+    ("Impedenza", "Resistenza al passaggio del segnale."),
+    ("Induttanza", "Proprietà che oppone variazione di corrente."),
+    ("Isolamento", "Separazione tra circuiti per evitare interferenze."),
+    ("Jitter", "Variazione temporale del segnale digitale."),
+    ("LAN", "Rete locale di dispositivi."),
+    ("Larghezza di banda", "Gamma di frequenze trasmesse."),
+    ("Link budget", "Bilancio di potenza in un sistema radio."),
+    ("LTE", "Standard per reti mobili ad alta velocità."),
+    ("Modulazione", "Variazione di un’onda portante per trasmettere dati."),
+    ("Multiplexing", "Tecnica per inviare più segnali su un solo canale."),
+    ("Noise figure", "Misura del rumore introdotto da un sistema."),
+    ("Onde radio", "Radiazioni elettromagnetiche usate nelle comunicazioni."),
+    ("Oscillatore", "Generatore di onde periodiche."),
+    ("Pacchetto", "Unità di dati trasmessi in rete."),
+    ("Parabola", "Antenna a forma di paraboloide."),
+    ("Path loss", "Perdita di potenza del segnale con la distanza."),
+    ("PLL", "Circuito per agganciare la frequenza di un segnale."),
+    ("Preamplificatore", "Dispositivo per amplificare segnali deboli."),
+    ("Protocollo", "Insieme di regole per la comunicazione."),
+    ("QAM", "Modulazione in ampiezza e fase."),
+    ("QoS", "Qualità del servizio in una rete."),
+    ("RADAR", "Sistema per rilevare oggetti con onde radio."),
+    ("Raggio", "Percorso seguito da un’onda elettromagnetica."),
+    ("Reiezione", "Capacità di un filtro di eliminare frequenze indesiderate."),
+    ("Ricevitore", "Dispositivo che riceve segnali."),
+    ("Router", "Dispositivo per instradare pacchetti in rete."),
+    ("RX", "Ricezione del segnale."),
+    ("Segnale", "Variazione fisica che trasporta informazione."),
+    ("Sensibilità", "Minima potenza rilevabile da un ricevitore."),
+    ("Sincronizzazione", "Allineamento temporale tra trasmettitore e ricevitore."),
+    ("SMA", "Connettore coassiale per RF."),
+    ("Smith chart", "Grafico per l’analisi di impedenze."),
+    ("SNR", "Rapporto segnale/rumore."),
+    ("Spettro", "Distribuzione in frequenza di un segnale."),
+    ("Tensione", "Differenza di potenziale elettrico."),
+    ("THD", "Distorsione armonica totale."),
+    ("Time Division", "Multiplexing per suddividere segnali nel tempo."),
+    ("TLC", "Abbreviazione di telecomunicazioni."),
+    ("Topologia", "Struttura fisica o logica di una rete."),
+    ("TX", "Trasmissione del segnale."),
+    ("UDP", "Protocollo di trasporto non orientato alla connessione."),
+    ("Uplink", "Canale di trasmissione dal terminale alla rete."),
+    ("VSWR", "Rapporto di onde stazionarie di tensione."),
+    ("WAN", "Rete geografica di computer."),
+    ("Watt", "Unità di potenza."),
+    ("Wi-Fi", "Tecnologia per reti wireless locali."),
+    ("Wireless", "Comunicazione senza fili."),
+    ("Zigbee", "Protocollo per comunicazione wireless a corto raggio.")
+]
+
+# Generazione del contenuto JS
+glossario_js = "const glossarioCompleto = [\n"
+for termine, definizione in termini:
+    glossario_js += f"  {{ termine: \"{termine}\", definizione: \"{definizione}\" }},\n"
+glossario_js += "];"
+
+glossario_js[:1000]  # Mostriamo solo una parte del risultato per anteprima
 
