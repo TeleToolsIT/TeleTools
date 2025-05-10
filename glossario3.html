@@ -3,48 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Glossario di termini tecnici per telecomunicazioni - Parte 3">
-  <title>Glossario Telecomunicazioni (3)</title>
+  <meta name="description" content="Glossario tecnico delle telecomunicazioni - Pagina 3">
+  <title>TeleTools - Glossario (pagina 2)</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     body {
-      background-color: #fff7e8;
       margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #fff7e8;
       color: #000;
-      padding: 0 20px;
+      padding-left: 20px;
     }
 
-     header {
-  background-color: #353f40;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 80px;
-  position: relative;
-  box-sizing: border-box;
-}
+    header {
+      background-color: #353f40;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      position: relative;
+    }
 
     .logo img {
-      width: 120px;
       height: auto;
+      width: 120px;
+      max-width: 100%;
     }
 
-   .menu-toggle {
-  cursor: pointer;
-  width: 30px;
-  height: 25px;
-  position: absolute;
-  left: 20px;
-  top: 28px;
-  z-index: 1001;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: transparent; /* Aggiunto per rimuovere la linea */
-  border: none; /* Previene bordi indesiderati */
-}
+    .menu-toggle {
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      position: absolute;
+      left: 20px;
+      top: 28px;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
     .menu-toggle span {
       background: #fff;
@@ -80,53 +78,44 @@
       background-color: #2c3334;
     }
 
-    .container {
-      max-width: 900px;
+    .glossary {
+      max-width: 1000px;
       margin: 40px auto;
     }
 
-    h1 {
-      text-align: center;
-      font-size: 36px;
-      color: #353f40;
-    }
-
-    h2 {
-      color: #353f40;
-      font-family: 'Georgia', serif;
+    .glossary h2 {
+      color: #5a5a5a;
+      font-family: 'Arial Black', sans-serif;
+      font-size: 28px;
+      border-bottom: 2px solid #353f40;
+      padding-bottom: 8px;
       margin-top: 30px;
-      margin-bottom: 10px;
     }
 
-    p {
-      margin-bottom: 20px;
-      font-size: 17px;
+    .glossary p {
+      margin-bottom: 14px;
       line-height: 1.6;
-      text-align: justify;
-    }
-
-    strong {
-      font-weight: bold;
     }
 
     .pagination {
       text-align: center;
-      margin-top: 50px;
+      margin: 50px 0;
     }
 
     .pagination a {
       display: inline-block;
-      margin: 0 10px;
-      padding: 10px 18px;
       background-color: #353f40;
       color: #fff7e8;
+      padding: 10px 18px;
+      margin: 0 5px;
       text-decoration: none;
       border-radius: 8px;
+      font-weight: bold;
       transition: background-color 0.3s;
     }
 
     .pagination a:hover {
-      background-color: #2c3334;
+      background-color: #2a2f30;
     }
 
     footer {
@@ -134,10 +123,10 @@
       color: #fff7e8;
       text-align: center;
       padding: 20px;
-      margin-top: 60px;
+      margin-top: 40px;
     }
   </style>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VEGQ2RZG5N"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -147,25 +136,31 @@
   </script>
 </head>
 <body>
-  <header>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="logo">
-      <a href="index.html"><img src="logo.png" alt="Logo TeleTools" /></a>
-    </div>
-  </header>
 
-  <div id="sidebar" class="sidebar">
-    <a href="index.html">HOME</a>
-    <a href="dBm-mW.html">DBM ↔ MW</a>
-    <a href="calcolo-attenuazione-cavo.html">ATTENUAZIONE SU CAVO</a>
-    <a href="conversione-db-lineare.html">DB ↔ RAPPORTO</a>
-    <a href="conversione-tensione-potenza.html">TENSIONE ↔ POTENZA</a>
-    <a href="calcolo-lunghezza-donda.html">LUNGHEZZA D’ONDA</a>
-    <a href="glossario.html">GLOSSARIO</a>
-    <a href="sostienimi.html">SOSTIENIMI</a>
+<header>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+  <div class="logo">
+    <a href="index.html"><img src="logo.png" alt="Logo TeleTools" /></a>
+  </div>
+</header>
+
+<div id="sidebar" class="sidebar">
+  <a href="index.html">HOME</a>
+  <a href="dBm-mW.html">DBM ↔ MW</a>
+  <a href="calcolo-attenuazione-cavo.html">ATTENUAZIONE SU CAVO</a>
+  <a href="conversione-db-lineare.html">DB ↔ RAPPORTO</a>
+  <a href="conversione-tensione-potenza.html">TENSIONE ↔ POTENZA</a>
+  <a href="calcolo-lunghezza-donda.html">LUNGHEZZA D’ONDA</a>
+  <a href="radiofrequenza.html">RADIOFREQUENZA</a>
+  <a href="glossario.html">GLOSSARIO</a>
+</div>
+
+<section class="glossary">
+  <h1 style="text-align: center;">📘 Glossario delle telecomunicazioni (pagina 3)</h1>
 
   <div class="container">
     <h1>Glossario di Telecomunicazioni (3/3)</h1>
@@ -260,22 +255,24 @@
     <h2>ZigBee</h2>
     <p><strong>ZigBee</strong>: protocollo di comunicazione wireless a basso consumo per reti di sensori.</p>
 
-    <div class="pagination">
-      <a href="glossario.html">« 1</a>
-      <a href="glossario2.html">2</a>
-      <a href="glossario3.html" style="background-color: #2c3334;">3</a>
-    </div>
+
+  <div class="pagination">
+    <a href="glossario.html">← Pagina 1</a>
+    <a href="glossario2.html">← Pagina 2</a>
+    <a href="glossario3.html" style="background-color: #2a2f30;">Pagina 3</a>
   </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 TeleTools. Tutti i diritti riservati.</p>
-  </footer>
+<footer>
+  <p>&copy; 2025 TeleTools. Tutti i diritti riservati.</p>
+</footer>
 
-  <script>
-    function toggleMenu() {
-      const sidebar = document.getElementById("sidebar");
-      sidebar.style.width = sidebar.style.width === "250px" ? "0" : "250px";
-    }
-  </script>
+<script>
+  function toggleMenu() {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.style.width = sidebar.style.width === "250px" ? "0" : "250px";
+  }
+</script>
+
 </body>
 </html>
